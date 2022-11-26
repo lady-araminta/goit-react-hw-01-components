@@ -1,26 +1,39 @@
+import {
+  ProfileCont,
+  UserDescription,
+  UserPhoto,
+  UserName,
+  UserTag,
+  UserLocation,
+  UserStat,
+  UserStatItem,
+  Label,
+  LabelValue,
+} from './Profile.styled';
+
 export const Profile = ({ user }) => {
   return (
-    <div>
-      <div>
-        <img src={user.avatar} alt={user.username} />
-        <p>{user.username}</p>
-        <p>{user.tag}</p>
-        <p>{user.location}</p>
-      </div>
-      <ul>
-        <li>
-          <span>Followers</span>
-          <span>{user.stats.followers}</span>
-        </li>
-        <li>
-          <span>Views</span>
-          <span>{user.stats.views}</span>
-        </li>
-        <li>
-          <span>Likes</span>
-          <span>{user.stats.likes}</span>
-        </li>
-      </ul>
-    </div>
+    <ProfileCont>
+      <UserDescription>
+        <UserPhoto src={user.avatar} alt={user.username} />
+        <UserName>{user.username}</UserName>
+        <UserTag>@{user.tag}</UserTag>
+        <UserLocation>{user.location}</UserLocation>
+      </UserDescription>
+      <UserStat>
+        <UserStatItem>
+          <Label>Followers</Label>
+          <LabelValue>{user.stats.followers}</LabelValue>
+        </UserStatItem>
+        <UserStatItem>
+          <Label>Views</Label>
+          <LabelValue>{user.stats.views}</LabelValue>
+        </UserStatItem>
+        <UserStatItem>
+          <Label>Likes</Label>
+          <LabelValue>{user.stats.likes}</LabelValue>
+        </UserStatItem>
+      </UserStat>
+    </ProfileCont>
   );
 };

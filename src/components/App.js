@@ -6,6 +6,7 @@ import { FriendList } from './FriendList';
 import friends from 'data/friends.json';
 import { TransactionHistory } from './TransactionHistory';
 import transactions from 'data/transactions.json';
+import { GlobalStyle } from './GlobalStyle';
 
 export const App = () => {
   return (
@@ -14,6 +15,7 @@ export const App = () => {
       <Stat title="Upload stats" stats={data} />
       <FriendList friends={friends} />
       <TransactionHistory items={transactions} />
+      <GlobalStyle />
     </>
   );
 };
