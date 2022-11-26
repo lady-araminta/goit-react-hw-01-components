@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   ProfileCont,
   UserDescription,
@@ -11,29 +12,47 @@ import {
   LabelValue,
 } from './Profile.styled';
 
-export const Profile = ({ user }) => {
+export const Profile = ({
+  username,
+  tag,
+  location,
+  avatar,
+  statsFollowers,
+  statsViews,
+  statsLikes,
+}) => {
   return (
     <ProfileCont>
       <UserDescription>
-        <UserPhoto src={user.avatar} alt={user.username} />
-        <UserName>{user.username}</UserName>
-        <UserTag>@{user.tag}</UserTag>
-        <UserLocation>{user.location}</UserLocation>
+        <UserPhoto src={avatar} alt={username} />
+        <UserName>{username}</UserName>
+        <UserTag>@{tag}</UserTag>
+        <UserLocation>{location}</UserLocation>
       </UserDescription>
       <UserStat>
         <UserStatItem>
           <Label>Followers</Label>
-          <LabelValue>{user.stats.followers}</LabelValue>
+          <LabelValue>{statsFollowers}</LabelValue>
         </UserStatItem>
         <UserStatItem>
           <Label>Views</Label>
-          <LabelValue>{user.stats.views}</LabelValue>
+          <LabelValue>{statsViews}</LabelValue>
         </UserStatItem>
         <UserStatItem>
           <Label>Likes</Label>
-          <LabelValue>{user.stats.likes}</LabelValue>
+          <LabelValue>{statsLikes}</LabelValue>
         </UserStatItem>
       </UserStat>
     </ProfileCont>
   );
+};
+
+Profile.propTypes = {
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  statsFollowers: PropTypes.number.isRequired,
+  statsViews: PropTypes.number.isRequired,
+  statsLikes: PropTypes.number.isRequired,
 };

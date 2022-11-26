@@ -5,6 +5,7 @@ export const ProfileCont = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 48px;
+  margin-bottom: 48px;
   padding-top: 20px;
   border-radius: 4px;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
